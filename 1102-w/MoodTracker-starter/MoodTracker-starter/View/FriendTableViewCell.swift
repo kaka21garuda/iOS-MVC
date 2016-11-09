@@ -16,9 +16,12 @@ class FriendTableViewCell: UITableViewCell {
     print(#line, #function)
   }
 
+    @IBOutlet weak var nameLabel: UILabel!
 
   
+    @IBOutlet weak var moodDescriptionLabel: UILabel!
 
   
+    @IBOutlet weak var emojiButton: UIButton!
   
 }
