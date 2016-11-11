@@ -26,21 +26,20 @@ class FriendsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendTableViewCell") as! FriendTableViewCell!
+        
+        cell?.instanceFriendsTableViewController = self
         let oneFriend = friendArray[indexPath.row]
+        cell?.friend = oneFriend
         cell?.nameLabel.text = oneFriend.name
         cell?.emojiButton.setTitle(oneFriend.mood.rawValue, for: .normal)
-        
-        switch oneFriend.mood {
-        case .angry:
-            cell?.moodDescriptionLabel.text = "Get out of my lawn!!!"
-        case .happy:
-            cell?.moodDescriptionLabel.text = "Hello World!"
-        case .medium:
-            cell?.moodDescriptionLabel.text = "Do I know you?"
-        }
-        
+        cell?.moodDescriptionLabel.text = Friend.MoodDescription(oneFriend: oneFriend.mood)
         return cell!
+        
         
     }
     
+    func updateEmoji(friend: Friend, newMood: Mood) {
+        friend.mood = newMood
+        tableView.reloadData()
+    }
 }

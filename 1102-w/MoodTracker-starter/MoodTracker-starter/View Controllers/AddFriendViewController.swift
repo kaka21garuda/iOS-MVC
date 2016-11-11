@@ -21,6 +21,7 @@ class AddFriendViewController: UIViewController {
   
   @IBAction func saveButtonPressed(_ sender: AnyObject) {
     // TODO: save the added friend here
+    
     dismissViewController()
   }
   

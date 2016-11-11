@@ -9,11 +9,21 @@
 import UIKit
 
 class FriendTableViewCell: UITableViewCell {
-  
-  var friend: Friend? // stores the friend that is displayed in this cell
+    
+    var instanceFriendsTableViewController: FriendsTableViewController!
+    
+    var friend: Friend! {
+        didSet {
+            nameLabel.text = friend.name
+            emojiButton.setTitle(friend.mood.rawValue, for: .normal)
+            moodDescriptionLabel.text = Friend.MoodDescription(oneFriend: friend.mood)
+        }
+    }
   
   @IBAction func moodButtonPressed(_ sender: UIButton) {
     print(#line, #function)
+    let newMood = getNewMood()
+    instanceFriendsTableViewController.updateEmoji(friend: friend, newMood: newMood)
   }
 
     @IBOutlet weak var nameLabel: UILabel!
@@ -23,5 +33,16 @@ class FriendTableViewCell: UITableViewCell {
 
   
     @IBOutlet weak var emojiButton: UIButton!
+    
+    func getNewMood() -> Mood {
+        switch friend.mood {
+        case .angry:
+            return .happy
+        case .happy:
+            return .medium
+        case .medium:
+            return .angry
+        }
+    }
   
 }
