@@ -18,6 +18,7 @@ class FriendsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(#function, self)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -26,7 +27,7 @@ class FriendsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FriendTableViewCell") as! FriendTableViewCell!
-        
+
         cell?.instanceFriendsTableViewController = self
         let oneFriend = friendArray[indexPath.row]
         cell?.friend = oneFriend
@@ -34,12 +35,20 @@ class FriendsTableViewController: UITableViewController {
         cell?.emojiButton.setTitle(oneFriend.mood.rawValue, for: .normal)
         cell?.moodDescriptionLabel.text = Friend.MoodDescription(oneFriend: oneFriend.mood)
         return cell!
-        
-        
     }
     
     func updateEmoji(friend: Friend, newMood: Mood) {
         friend.mood = newMood
         tableView.reloadData()
+    }
+    
+    func addFriend(friend: Friend) {
+        friendArray.append(friend)
+        tableView.reloadData()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let addFriendViewController: AddFriendViewController = segue.destination as! AddFriendViewController
+        addFriendViewController.friendsTableViewController = self
     }
 }

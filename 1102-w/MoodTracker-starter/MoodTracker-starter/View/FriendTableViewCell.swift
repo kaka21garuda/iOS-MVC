@@ -14,9 +14,9 @@ class FriendTableViewCell: UITableViewCell {
     
     var friend: Friend! {
         didSet {
-            nameLabel.text = friend.name
-            emojiButton.setTitle(friend.mood.rawValue, for: .normal)
-            moodDescriptionLabel.text = Friend.MoodDescription(oneFriend: friend.mood)
+//            nameLabel.text = friend.name
+//            emojiButton.setTitle(friend.mood.rawValue, for: .normal)
+//            moodDescriptionLabel.text = Friend.MoodDescription(oneFriend: friend.mood)
         }
     }
   

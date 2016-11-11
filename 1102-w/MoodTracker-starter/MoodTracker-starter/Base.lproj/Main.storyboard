@@ -89,7 +89,7 @@
                     <navigationItem key="navigationItem" id="8nk-hD-nlz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="hho-DA-H4I">
                             <connections>
-                                <segue destination="Q2A-tL-vd8" kind="presentation" id="TgB-uy-HuQ"/>
+                                <segue destination="Q2A-tL-vd8" kind="presentation" id="pQF-G6-Mlt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -161,10 +161,14 @@
                             <constraint firstItem="NS5-Ir-Knh" firstAttribute="leading" secondItem="jyb-Hv-bSu" secondAttribute="leading" id="uBb-Uf-d0B"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="emojiSegmentControl" destination="3J3-mB-rYw" id="R2z-JF-tvb"/>
+                        <outlet property="nameTextField" destination="80W-fN-8Tj" id="Csy-w5-qPW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDx-6x-MVx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1639" y="15"/>
+            <point key="canvasLocation" x="1703" y="15"/>
         </scene>
     </scenes>
 </document>
