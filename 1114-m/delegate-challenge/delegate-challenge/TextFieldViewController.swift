@@ -8,12 +8,13 @@
 
 import UIKit
 
-class TextFieldViewController: UIViewController {
+class TextFieldViewController: UIViewController, UITextFieldDelegate {
   
   @IBOutlet weak var textField: UITextField!
   
   override func viewDidLoad() {
-    super.viewDidLoad()    
+    super.viewDidLoad()
+    self.textField.autocapitalizationType = .allCharacters
   }
   
   
