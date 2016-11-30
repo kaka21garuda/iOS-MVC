@@ -19,6 +19,7 @@ class FriendsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print(#function, self)
+        print(friendArray[0].mood.rawValue)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -22,6 +22,7 @@ class FriendTableViewCell: UITableViewCell {
   
   @IBAction func moodButtonPressed(_ sender: UIButton) {
     print(#line, #function)
+    print(instanceFriendsTableViewController.friendArray[0].mood)
     let newMood = getNewMood()
     instanceFriendsTableViewController.updateEmoji(friend: friend, newMood: newMood)
   }
